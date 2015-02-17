@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Quantum Dynamics" />
+    <meta name="keywords" content="quantum system dynamics time evolution simulation decoherence dissipation qubit oscillator" />
+    <meta name="author" content="J Robert Johansson" />
+    <meta name="Copyright" content="Copyright (C) 2008 J Robert Johansson" />
+
+    <title>QDpack - Quantum Dynamics Package</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/~rob/main.css" /> -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+
+<img src="http://s3-ap-northeast-1.amazonaws.com/jrjohansson/web/images/qdpack-logo.png" alt="QDpack logo">
+
+<p>
+QDpack (Quantum Dynamics Package) is a free open-source software package (LGPL), implemented in C, for calculating the time-evolution of quantum systems. QDpack includes solvers for both unitary and dissipative dynamics, which can be applied to arbitrary quantum systems as long the total numbers of states is moderate (~100 to 300, depending on the stiffness of the problem). QDpack is a low-level C library. In order to solve a particular problem a C program needs to be created. A good starting point is one of the many examples that are included in the distribution tarball. It is often sufficient to create a new definition of a Hamiltonian to get started with a new calculation.
+</p>
+
+<h2>Change Log</h2>
+
+<ul>
+<li>2010-10-01: qdpack 1.1: Added steady-state solver for driven systems, routines for calculating wigner and Q functions, minor bug fixes, sparse matrix support for steady state calculations.</li>
+<li>2008-06-01: qdpack 1.0: First public release.</li>
+</ul>
+
+<h2>Download</h2>
+
+<ul>
+<li>Releases: <a href="https://s3-ap-northeast-1.amazonaws.com/jrjohansson/web/files/qdpack-1.1.tar.gz">qdpack-1.1.tar.gz</a>, <a href="https://s3-ap-northeast-1.amazonaws.com/jrjohansson/web/files/qdpack-1.0.tar.gz">qdpack-1.0.tar.gz</a></li>
+<li>Development code is availble at github: <a href="https://www.github.com/jrjohansson/qdpack/">jrjohansson/qdpack</a></li>
+</ul>
+
+<h2>Features</h2>
+
+<ul>
+<li> Unitary evolution with arbitrary time-dependent Hamiltonians. </li>
+<li> Dissipative evolution using the Lindblad master equation formalism, with arbitrary time-dependent Hamiltonian. </li>
+<li> Evolution (unitary and dissipative) in time-dependent basis (i.e. instantaneous eigenbasis of a time-dependent Hamiltonian).
+<li> Calculation of expectation values of arbitrary operators as a function of time. </li>
+<li> Calculation of steady state for time-independent systems. </li>
+<li> Calculation of two-time expectation values (correlation functions) of arbitrary operators as a function of time. </a>
+<li> Calculation of entanglement measures for two-level quantum systems. </li>
+<li> Pre-configured Hamiltonians:
+	<ul>
+		<li>Coupled qubits (spin chains, etc.). </li>
+		<li>Two-level system coupled to a single-mode harmonic oscillator (Jaynes-Cummings model).</li>
+		<li>Multiple qubits (two-level system) coupled to a single-mode harmonic oscillator (Qubits coupled via a harmonic oscillator bus).</li>
+		<li>Two coupled single-mode harmonic oscillators.</li>
+	</ul> 
+	</li>
+</ul>
+
+<h2>Build and install instructions for Ubuntu Linux</h2>
+
+<ul>
+<li> Requirements: <a href="http://www.netlib.org/clapack/cblas/">CBLAS</a>, <a href="http://www.netlib.org/clapack/">CLAPACK</a>, <a href="http://www.gnu.org/software/gsl/">GSL</a> and UMFPACK (for sparse matrices) . First install these packages. In Ubuntu Linux, run:</li>
+<pre>
+sudo apt-get install libblas-dev liblapack-dev
+sudo apt-get install libatlas-base-dev libatlas3gf-sse2
+sudo apt-get install libgsl0-dev libgsl0-dbg
+sudo apt-get install libf2c2 libf2c2-dev f2c
+sudo apt-get install libsuitesparse-dev 
+</pre>
+
+<li> Download and unpack the QD package tarball: tar zxfv qdpack-1.1.tar.gz</li>
+<li> Edit the Makefile. Make sure that the CFLAGS and LDLIBS correctly specifies the locations of the dependency libraries (i.e., BLAS, LAPACK, GSL, etc.). </li>
+<li> Run "make" to compile, and optionally "make install".</li>
+<li> Edit the simulation files run_qubits.c, run_ho.c, etc., compile and run a simulation by running e.g. "./run_qubits ...", etc. The simulation produces output files in "tab-separated values" (TSV) format which are stored in the "data" directory. </li>
+</ul>
+
+<h2>Documentation</h2>
+
+<p>
+To get started get started using the QD package 
+have a look at this <a href="qdpack_example.html">example</a>, as well as the examples that are included in the source
+code distribution.
+Also, the QDpack source code is partially documented using Doxygen,
+which automatically generates API reference pages that can be found in the source code distribution.
+</p>
+
+<hr>
+<p>
+<small>
+Copyright &copy; Robert Johansson
+<br />
+</small>
+</p>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-926494-2";
+urchinTracker();
+</script>
+</body>
+</html>
